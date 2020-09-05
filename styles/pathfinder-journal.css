@@ -1,0 +1,337 @@
+/*
+    Welcome to the inner sanctum of your own personal playground to design your
+    own wonderful-looking journals! Having mutliple different active journal 
+    themes (much like say, character sheets in the D&D 5e system) is something 
+    I eventually want to tackle, but is not yet implemented as journals are not
+    natively extensible the same way, as far as I've seen, so if anyone wants to
+    reach out with a solution on how to do that, it would be greatly appreciated!
+    Otherwise, see below for the general variables you can set to better customize
+    your experience, whether it is to get that unique Sci-Fi look, make a
+    dark theme or log your adventures in a cuter, funnier or grimer theme. Have fun!
+                                                            - Sanyella
+
+    Personalizing your journals
+    *************************************
+    If you want to customize the look of your journals, you can simply modify the
+    variables' values for a uniform change. It is unrecommended to individually
+    change values for elements, as these changes can become hard to track and to
+    keep uniform, but the power is in your hands! It is after all quite possible 
+    that my original settings do not allow for the exact thing you want, or we do 
+    not perfectly agree on what belongs as an "accent", and that's ok :)
+
+    Different things that cannot be parametherized with variables are also in there,
+    I've tried to tag the most interesting ones with OPTION to make them easily 
+    searchable (do you want drop caps at the beginning of your paragraphs, for 
+    instance?).
+    
+    A final word of warning:
+    Especially since there is currently no concept of multiple "themes" and no
+    permanence of any of your changes, though updates aren't likely to come up all
+    that often for this little module, they might still happen (such as perhaps to 
+    introduce such theming) and ANY CHANGES YOU WOULD HAVE MADE WOULD BE LOST.
+
+    ###############################################################################
+    # PLEASE SAVE ANY CHANGES YOU WANT TO KEEP OUTSIDE OF THE MODULE TO SET THOSE #
+    # BACK IN CASE OF A MODULE UPDATE.                                            #
+    ###############################################################################
+
+    Thanks, attributions & links
+    *************************************
+    Thanks to both Stryxin's dark mode module (https://github.com/Stryxin/dnd5edark-foundryvtt)
+    and Felix's BetterNPCSheet module (https://github.com/syl3r86/BetterNPCSheet5e)
+    which have both helped me tremendously in understanding how to structure my own
+    module.
+    Lovers Quarrel font: https://fonts.google.com/specimen/Lovers+Quarrel
+    Anglo-text font: https://www.1001fonts.com/anglo-text-font.html
+        For more drop-cap fonts: https://www.1001fonts.com/drop-caps-fonts.html
+        And how to add them: https://www.pagecloud.com/blog/how-to-add-custom-fonts-to-any-website
+    Dark background 1: https://www.publicdomainpictures.net/en/view-image.php?image=169017&picture=grunge-background
+    Parchment 1, by FilterForge : https://www.flickr.com/photos/filterforge/9340122531
+
+*/
+
+/*
+    Variables for uniform color control
+    Using an editor like VSCode which has a built in color picker or an external 
+    ressource that gives you the hexadecimal color code from a color picker is 
+    recommended. Be careful too to give them a name unique to your theme so as to 
+    not encounter any problems with properties overriding one another (just 
+    search-and-replace the "--pathfinder-" pattern)
+*/
+
+body {
+    --pathfinder-dark-accent-color: #061a5e;
+    --pathfinder-base-accent-color: #002394;
+    --pathfinder-light-accent-color: #1b47d6;
+    --pathfinder-translucent-accent-color: #00239440;
+    --pathfinder-header-color: #000000;
+    --pathfinder-base-text-color: #000000;
+    --pathfinder-link-color: #3b56b1;
+    --pathfinder-link-visited-color: #405494;
+    --pathfinder-window-text-color: #000000;
+    --pathfinder-button-background-color: #ffffffc2;
+    --pathfinder-button-hover-color: #442525;
+    --pathfinder-background-color: #a5afb4bb;
+    --pathfinder-background-texture-image: url(../textures/parchment-default.jpg);
+    --pathfinder-read-box-text-color: #0e7005;
+    --pathfinder-read-box-background-color: #ffffff77;
+    --pathfinder-read-box-accent-color: #0e7005;
+}
+
+/************************************************
+	Headers and text
+************************************************/
+
+.pathfinder-journal h2, .pathfinder-journal h1 {
+    border-bottom: 1px solid var(--pathfinder-base-accent-color);
+    color: var(--pathfinder-header-color);
+}
+
+.pathfinder-journal .editor-content>h3, .pathfinder-journal .editor-content>h4, .pathfinder-journal .editor-content>h5, .pathfinder-journal .editor-content>h6 {
+    color: var(--pathfinder-header-color);
+}
+
+.pathfinder-journal .editor-content>p {
+    color: var(--pathfinder-base-text-color);
+}
+
+/* bullet-point list */
+
+.pathfinder-journal .editor-content>ul {
+    color: var(--pathfinder-base-text-color);
+}
+
+/************************************************
+    Special text and highlights
+************************************************/
+
+.pathfinder-journal .editor-content>blockquote {
+    color: var(--template-base-text-color);
+}
+
+/* .pathfinder-journal .editor-content>blockquote {
+    color: var(--pathfinder-read-box-text-color);
+    background-color: var(--pathfinder-read-box-background-color);
+    font-size: 125%;
+} */
+
+/* Links (internet) */
+
+.pathfinder-journal a:link {
+    color: var(--pathfinder-link-color);
+}
+
+.pathfinder-journal a:visited {
+    color: var(--pathfinder-link-visited-color);
+}
+
+.pathfinder-journal a:hover {
+    color: var(--pathfinder-link-color);
+    text-shadow: 0px 0px 2px var(--pathfinder-light-accent-color);
+}
+
+/* Links (entity, rolls) */
+
+.pathfinder-journal a.entity-link, .pathfinder-journal a.inline-roll {
+    background-color: var(--pathfinder-button-background-color);
+}
+
+/* Secret section */
+
+.pathfinder-journal section.secret {
+    color: var(--pathfinder-base-text-color);
+    background-color: #df94ee20;
+}
+
+/* Modifies Polyglot CSS */
+
+.pathfinder-journal .polyglot-journal {
+    background-color: #00239440;
+}
+
+/* 
+    OPTION Drop cap - you can add font and color options to this block, too!
+    Changing sizes and fonts might require you to test and tweak quite a bit
+    to get exactly the effect you want, but hey, drop caps are cool! 
+*/
+
+.pathfinder-journal span.drop-cap {
+    float: left;
+    font-family: 'anglo_textregular';
+    font-size: 3em;
+    line-height: 0.8em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    color: var(--pathfinder-header-color);
+}
+
+/************************************************
+    OPTION Added block styles
+************************************************/
+
+.pathfinder-journal section.read-the-box {
+    color: var(--pathfinder-read-box-text-color);
+    background-color: var(--pathfinder-read-box-background-color);
+    font-size: 120%;
+    border-top: 2px solid var(--pathfinder-read-box-accent-color);
+    border-bottom: 2px solid var(--pathfinder-read-box-accent-color);
+    padding: 1em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+.pathfinder-journal section.simple-block {
+    color: var(--pathfinder-base-text-color);
+    background-color: var(--pathfinder-translucent-accent-color);
+    border: 1px solid var(--pathfinder-base-accent-color);
+    padding: 4px;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.pathfinder-journal section.simple-block-float {
+    color: var(--pathfinder-base-text-color);
+    background-color: var(--pathfinder-translucent-accent-color);
+    border: 1px solid var(--pathfinder-base-accent-color);
+    padding: 4px;
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 35%;
+    float: right;
+}
+
+.pathfinder-journal section.ridged-block {
+    color: var(--pathfinder-base-text-color);
+    background-color: var(--pathfinder-translucent-accent-color);
+    border: 5px ridge var(--pathfinder-base-accent-color);
+    padding: 4px;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.pathfinder-journal section.ridged-block-float {
+    color: var(--pathfinder-base-text-color);
+    background-color: var(--pathfinder-translucent-accent-color);
+    border: 5px ridge var(--pathfinder-base-accent-color);
+    padding: 4px;
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 35%;
+    float: right;
+}
+
+/************************************************
+    Background and various window elements
+************************************************/
+
+/* Journal title */
+
+.pathfinder-journal .window-content input[type="text"] {
+    color: var(--pathfinder-header-color);
+}
+
+.pathfinder-journal .window-content input[type="text"]:focus, .pathfinder-journal .window-content input[type="text"]:hover {
+    box-shadow: 0 0 10px var(--pathfinder-base-accent-color);
+}
+
+/* Background */
+
+.pathfinder-journal .window-content {
+    background: var(--pathfinder-background-texture-image);
+}
+
+.pathfinder-journal button {
+    background-color: var(--pathfinder-button-background-color);
+    color: var(--pathfinder-window-text-color);
+    border-color: var(--pathfinder-button-hover-color);
+}
+
+.pathfinder-journal button:hover {
+    background-color: var(--pathfinder-button-hover-color);
+    box-shadow: 0 0 10px var(--pathfinder-base-accent-color);
+}
+
+.pathfinder-journal ::-webkit-scrollbar-thumb {
+    background: var(--pathfinder-dark-accent-color);
+    border: 1px solid var(--pathfinder-base-accent-color);
+}
+
+/* Folder dropdown - upper bar */
+
+.pathfinder-journal .editable select[name="folder"] {
+    color: var(--pathfinder-window-text-color);
+    background: url(../textures/dark-background-1.jpg);
+}
+
+.pathfinder-journal .editable select[name="folder"]:focus {
+    box-shadow: 0 0 5px var(--pathfinder-base-accent-color);
+}
+
+/* Folder dropdown - the actual dropdown */
+
+.pathfinder-journal .editable select[name="folder"] option {
+    color: var(--pathfinder-window-text-color);
+    background-color: var(--pathfinder-button-hover-color);
+}
+
+/*
+    One Journal compatibility
+*/
+
+/* Background with OneJournal */
+
+#OneJournalShell .pathfinder-journal.one-journal-attached .window-content {
+    background: var(--pathfinder-background-texture-image);
+}
+
+/* Entry title underline with OneJournal */
+
+.pathfinder-journal.one-journal-attached form input[name="name"] {
+    border-color: var(--pathfinder-base-accent-color);
+}
+
+/************************************************
+    Editor 
+    OPTION - depending on if you want the editing experience to be more or less
+    the same as the modified presentation, or a more streamlined editing look, it
+    is here that you should look to enable, disable, or tweak things.
+************************************************/
+
+/* Background */
+
+.pathfinder-journal .editor .tox-edit-area {
+    /* background: var(--pathfinder-background-texture-image); */
+    background-color: var(--pathfinder-background-color);
+}
+
+/* Buttons in edit mode */
+
+.pathfinder-journal .editor button {
+    color: var(--pathfinder-base-text-color);
+    background-color: var(--pathfinder-button-background-color);
+}
+
+.pathfinder-journal .editor button:hover {
+    color: var(--pathfinder-base-text-color);
+    background-color: var(--pathfinder-button-hover-color);
+}
+
+/* Header bar where the buttons are in edit mode */
+
+.pathfinder-journal .editor .tox-toolbar-overlord, .pathfinder-journal .editor .tox-toolbar__primary {
+    background-color: var(--pathfinder-background-color);
+}
+
+/* Button to go into edit mode */
+
+.pathfinder-journal .editor-edit {
+    color: var(--pathfinder-base-text-color);
+    background-color: var(--pathfinder-button-background-color);
+}
+
+/* Allows for the button images to be in colour */
+
+.pathfinder-journal .tox :not(svg):not(rect) {
+    fill: var(--pathfinder-base-text-color);
+    color: var(--pathfinder-base-text-color);
+}

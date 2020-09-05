@@ -3,7 +3,7 @@
 class CustomJournalSheet extends JournalSheet {
 
 
-	get journal(){
+	get journal() {
 		return this.object;
 	}
 
@@ -21,9 +21,14 @@ class CustomJournalSheet extends JournalSheet {
 			title: "Custom Journal",
 			items: [
 				{
+					title: "Read the Box",
+					block: 'section',
+					classes: 'read-the-box'
+				},
+				{
 					title: "Drop Cap",
 					inline: 'span',
-					classes: 'drop-cap' 
+					classes: 'drop-cap'
 				},
 				{
 					title: "Simple Block",
@@ -52,7 +57,7 @@ class CustomJournalSheet extends JournalSheet {
 			]
 		});
 		editorOptions.style_formats_merge = true;
-		super._createEditor(target,editorOptions, initialContent);
+		super._createEditor(target, editorOptions, initialContent);
 	}
 
 	/*
@@ -123,6 +128,14 @@ class RoyalJournal extends CustomJournalSheet {
 	}
 }
 
+class PathfinderJournal extends CustomJournalSheet {
+	static get defaultOptions() {
+		const options = super.defaultOptions;
+		options.classes.push('pathfinder-journal');
+		return options;
+	}
+}
+
 // Creating the structure in CONFIG for Journals to have different sheets
 console.log("CustomJournals | Creating the structure to allow multiple Journal Sheets.")
 CONFIG["JournalEntry"]["sheetClasses"] = {};
@@ -151,6 +164,11 @@ EntitySheetConfig.registerSheet(JournalEntry, "journals", HandwrittenLetter, {
 });
 
 EntitySheetConfig.registerSheet(JournalEntry, "journals", RoyalJournal, {
+	types: [CONST.BASE_ENTITY_TYPE],
+	makeDefault: false
+});
+
+EntitySheetConfig.registerSheet(JournalEntry, "journals", PathfinderJournal, {
 	types: [CONST.BASE_ENTITY_TYPE],
 	makeDefault: false
 });
