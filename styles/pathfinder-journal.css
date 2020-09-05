@@ -76,6 +76,7 @@ body {
     --pathfinder-read-box-text-color: #0e7005;
     --pathfinder-read-box-background-color: rgba(255, 255, 255, 0.25);
     --pathfinder-read-box-accent-color: #0e7005;
+    --pathfinder-checks-color: #8a0000;
 }
 
 /************************************************
@@ -136,6 +137,15 @@ body {
     background-color: var(--pathfinder-button-background-color);
 }
 
+/* Code style */
+
+.pathfinder-journal code {
+    color: var(--pathfinder-checks-color);
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
 /* Secret section */
 
 .pathfinder-journal section.secret {
@@ -149,10 +159,10 @@ body {
     background-color: #00239440;
 }
 
-/* 
+/*
     OPTION Drop cap - you can add font and color options to this block, too!
     Changing sizes and fonts might require you to test and tweak quite a bit
-    to get exactly the effect you want, but hey, drop caps are cool! 
+    to get exactly the effect you want, but hey, drop caps are cool!
 */
 
 .pathfinder-journal span.drop-cap {
@@ -291,7 +301,7 @@ body {
 }
 
 /************************************************
-    Editor 
+    Editor
     OPTION - depending on if you want the editing experience to be more or less
     the same as the modified presentation, or a more streamlined editing look, it
     is here that you should look to enable, disable, or tweak things.
@@ -301,14 +311,14 @@ body {
 
 .pathfinder-journal .editor .tox-edit-area {
     /* background: var(--pathfinder-background-texture-image); */
-    background-color: var(--pathfinder-background-color);
+    /* background-color: var(--pathfinder-background-color); */
 }
 
 /* Buttons in edit mode */
 
 .pathfinder-journal .editor button {
     color: var(--pathfinder-base-text-color);
-    background-color: var(--pathfinder-button-background-color);
+    /* background-color: var(--pathfinder-button-background-color); */
 }
 
 .pathfinder-journal .editor button:hover {
