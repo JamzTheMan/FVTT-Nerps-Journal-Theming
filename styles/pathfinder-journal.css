@@ -74,7 +74,7 @@ body {
     --pathfinder-background-color: #a5afb4bb;
     --pathfinder-background-texture-image: url(../textures/parchment-default.jpg);
     --pathfinder-read-box-text-color: #0e7005;
-    --pathfinder-read-box-background-color: #ffffff77;
+    --pathfinder-read-box-background-color: rgba(255, 255, 255, 0.25);
     --pathfinder-read-box-accent-color: #0e7005;
 }
 

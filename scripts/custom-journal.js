@@ -150,7 +150,7 @@ console.log("CustomJournals | Registering the module's sheets.")
 // The default Foundry journal
 EntitySheetConfig.registerSheet(JournalEntry, "journals", CustomJournalSheet, {
 	types: [CONST.BASE_ENTITY_TYPE],
-	makeDefault: true
+	makeDefault: false
 });
 
 EntitySheetConfig.registerSheet(JournalEntry, "journals", DarkSlateJournal, {
@@ -170,5 +170,5 @@ EntitySheetConfig.registerSheet(JournalEntry, "journals", RoyalJournal, {
 
 EntitySheetConfig.registerSheet(JournalEntry, "journals", PathfinderJournal, {
 	types: [CONST.BASE_ENTITY_TYPE],
-	makeDefault: false
+	makeDefault: true
 });
