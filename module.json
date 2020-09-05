@@ -20,7 +20,7 @@
 	"packs": [],
 	"url": "https://github.com/JamzTheMan/FVTT-Nerps-Journal-Theming",
 	"manifest": "https://raw.githubusercontent.com/JamzTheMan/FVTT-Nerps-Journal-Theming/v1.1.0/module.json",
-	"download": "https://github.com/JamzTheMan/FVTT-Nerps-Journal-Theming/raw/v1.1.0/custom-journal.zip",
+	"download": "https://github.com/JamzTheMan/FVTT-Nerps-Journal-Theming/raw/v1.1.0/nerps-journal.zip",
 	"bugs": "https://github.com/JamzTheMan/FVTT-Nerps-Journal-Theming/issues",
 	"compatibleCoreVersion": "0.7.1",
 	"minimumCoreVersion": "0.6.5"
